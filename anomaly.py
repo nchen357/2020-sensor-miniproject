@@ -22,12 +22,13 @@ def load_data(file: Path) -> T.Dict[str, pandas.DataFrame]:
             temperature[time] = {room: r[room]["temperature"][0]}
 
 
-    data = "temperature": pandas.DataFrame.from_dict(temperature, "index").sort_index(),
+    data = pandas.DataFrame.from_dict(temperature, "index").sort_index(),
 
 
     return data
 
 def detection(data):
+    print(data)
     return "hello world :)"
 
 
