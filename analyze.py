@@ -69,14 +69,7 @@ if __name__ == "__main__":
         plt.figure()
         data[k]['class1'].plot.density()
         plt.title("Probability Density Function of class 1: " + k)
-
-
-        if k == 'temperature':
-            plt.xlabel("Temperature")
-        elif k == "occupancy":
-            plt.xlabel("Occupancy")
-        else:
-            plt.xlabel("Units")
+        plt.xlabel(k)
 
     #Providing indicies to our dataframe
     time = data["temperature"].index

@@ -37,17 +37,17 @@ def detection(data):
     stdData = classData.std()
     print("Values for Original Data")
     print("Mean of Class1 data:", str(meanData))
-    print("Standard Deviation of Class1 data:", str(stdData))
-    print(classData)
+    print("Variance of Class1 data:", str(stdData**2))
+    
 
     #Find anomalies in the data
-    badData = classData[(classData >= (meanData + stdData)) | (classData <= (meanData - stdData))]
-    badMean = badData.mean()
-    badStd = badData.std()
-    print("Mean of excluded Class1 data:", str(badMean))
-    print("Standard Deviation of excluded Class1 data:", str(badStd))
-    print("Percentage of total data points excluded: ", str(len(badData)/len(classData)*100))
-    print(badData)
+    goodData = classData[(classData <= (meanData + 2*stdData)) & (classData >= (meanData - 2*stdData))]
+    goodMean = goodData.mean()
+    goodVar = goodData.std()**2
+    print("Mean of readjusted Class1 data:", str(goodMean))
+    print("Variance of readjusted Class1 data:", str(goodVar))
+    print("Percentage of total data points that have been excluded: ", str(100-len(goodData)/len(classData)*100))
+    
 
 
 if __name__ == "__main__":
