@@ -29,7 +29,21 @@ def load_data(file: Path) -> T.Dict[str, pandas.DataFrame]:
 
 def detection(data):
     print(data)
-    return "hello world :)"
+    name = 'class1'
+    #WHY IS IT DOING THIS????????????????????????????
+    classData = data[0][name]
+    #Discard the bad data aka the NAs
+    classData = classData.dropna()
+    #Find the mean and standard deviation of classData
+    meanData = classData.mean()
+    stdData = classData.std()
+    print("Mean of Class1 data:", str(meanData))
+    print("Standard Deviation of Class1 data:", str(stdData))
+
+    #Find anonmalies in the data
+
+    print(classData)
+    #return "hello world :)"
 
 
 if __name__ == "__main__":
