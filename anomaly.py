@@ -28,7 +28,7 @@ def load_data(file: Path) -> T.Dict[str, pandas.DataFrame]:
     return data
 
 def detection(data):
-    print(data)
+    #print(data)
     name = 'class1'
     #WHY IS IT DOING THIS????????????????????????????
     classData = data[0][name]
@@ -39,10 +39,16 @@ def detection(data):
     stdData = classData.std()
     print("Mean of Class1 data:", str(meanData))
     print("Standard Deviation of Class1 data:", str(stdData))
-
-    #Find anonmalies in the data
-
     print(classData)
+    
+    #Find anomalies in the data
+    badData = classData[(classData >= (meanData + stdData)) | (classData <= (meanData - stdData))]
+    badMean = badData.mean()
+    badStd = badData.std()
+    print("Mean of excluded Class1 data:", str(badMean))
+    print("Standard Deviation of excluded Class1 data:", str(badStd))
+    print("Percentage of total data points excluded: ", str(len(badData)/len(classData)*100))
+    print(badData)
     #return "hello world :)"
 
 
