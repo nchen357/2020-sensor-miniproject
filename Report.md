@@ -5,7 +5,7 @@
 
 **TO:** EC463 Professors
 
-**FROM:** EC463 Students Nicole Chen (U82335685) and Ye Chen (U??????????)
+**FROM:** EC463 Students Nicole Chen (U82335685) and Ye Chen (U30225486)
 
 **SUBJECT:** 2020 Sensor Miniproject
 
