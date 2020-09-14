@@ -79,32 +79,21 @@ if __name__ == "__main__":
             plt.xlabel("Units")
 
     #Providing indicies to our dataframe
-    print(type(data["temperature"]))
     time = data["temperature"].index
-    print(time[0])
-    print(type(time))
-    #print(data["temperature"])
-    #print(time)
-
     #find difference in the time so we can plot it
     timeDifference = time[1:] - time[:-1]
-    #print(timeDifference)
 
     #Finding the total duration of each element in just seconds
     for t in timeDifference:
         timeInterval.append(t.total_seconds())
     #Create a 1-D array so we are able to graph it
     timeSeries = pandas.Series(timeInterval)
-    #print(timeSeries)
 
-    #Print out our stats
+
     print("Time Interval Stats")
     #Finding the mean and variance of the time interval of the sensor reading
     print('Mean: ' + str(timeSeries.mean()))
     print('Variance: ' + str(timeSeries.var()))
-
-    #normal distribution...? :D
-
 
 
     plt.figure()

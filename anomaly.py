@@ -28,19 +28,18 @@ def load_data(file: Path) -> T.Dict[str, pandas.DataFrame]:
     return data
 
 def detection(data):
-    #print(data)
     name = 'class1'
-    #WHY IS IT DOING THIS????????????????????????????
     classData = data[0][name]
     #Discard the bad data aka the NAs
     classData = classData.dropna()
     #Find the mean and standard deviation of classData
     meanData = classData.mean()
     stdData = classData.std()
+    print("Values for Original Data")
     print("Mean of Class1 data:", str(meanData))
     print("Standard Deviation of Class1 data:", str(stdData))
     print(classData)
-    
+
     #Find anomalies in the data
     badData = classData[(classData >= (meanData + stdData)) | (classData <= (meanData - stdData))]
     badMean = badData.mean()
@@ -49,7 +48,6 @@ def detection(data):
     print("Standard Deviation of excluded Class1 data:", str(badStd))
     print("Percentage of total data points excluded: ", str(len(badData)/len(classData)*100))
     print(badData)
-    #return "hello world :)"
 
 
 if __name__ == "__main__":
