@@ -38,16 +38,17 @@ def detection(data):
     print("Values for Original Data")
     print("Mean of Class1 data:", str(meanData))
     print("Variance of Class1 data:", str(stdData**2))
-    
 
-    #Find anomalies in the data
+
+    #Filtering the bad data by removing things 2 standard deviations above and below
     goodData = classData[(classData <= (meanData + 2*stdData)) & (classData >= (meanData - 2*stdData))]
-    goodMean = goodData.mean()
-    goodVar = goodData.std()**2
-    print("Mean of readjusted Class1 data:", str(goodMean))
+    #Finding the median and variance of the filtered data
+    goodMedian = goodData.median()
+    goodVar = goodData.var()
+    print("Mean of readjusted Class1 data:", str(goodMedian))
     print("Variance of readjusted Class1 data:", str(goodVar))
     print("Percentage of total data points that have been excluded: ", str(100-len(goodData)/len(classData)*100))
-    
+
 
 
 if __name__ == "__main__":
