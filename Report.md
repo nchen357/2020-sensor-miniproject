@@ -5,7 +5,7 @@
 
 **TO:** EC463 Professors
 
-**FROM:** EC463 Students Nicole Chen and Ye Chen
+**FROM:** EC463 Students Nicole Chen (U82335685) and Ye Chen (U??????????)
 
 **SUBJECT:** 2020 Sensor Miniproject
 
@@ -55,6 +55,10 @@ The readjusted data is far more consistent and it appears to prove that less tha
 
 **Part four: Conclusion**
 
-The simulation does appear to be reflective of the real world - with so many physical and sometimes unpredictable variables, sensors in the real world also tend to have drastic but momentary changes in temperature. The amount of these spikes is typically very low and can be easily tuned out, just as we have observed with the simulated sensors where we used our filtering algorithm to remove any outliers. Overall our data was very consistent which is realistic given that we are gathering information from a singular room that most likely does not have that many environmental changes. This simulation does have a few drawbacks however, and without real world parameters there can only be so much these sensors can emulate with proper accuracy. The random number generation for formulating the sensor data may either not be accurate enough or could possibly be even too predictable in comparison with the real world. In a more realistic simulation of the real world, there would be times where our temperature would increase or decrease due to changes in the weather but ours remains relatively constant. Our lack of hardware components also means that while our software simulation is interesting, it leaves us unable to account for any skew in our data caused by deviation in physical variables which would make testing potentially inaccurate during a field test.
+The simulation does appear to be reflective of the real world - with so many physical and sometimes unpredictable variables, sensors in the real world also tend to have drastic but momentary changes in temperature. The amount of these spikes is typically very low and can be easily tuned out, just as we have observed with the simulated sensors where we used our filtering algorithm to remove any outliers. Overall our data was very consistent, with numbers hovering around ~22, which is realistic given that we are gathering information from a singular room that most likely does not have that many environmental changes.
 
-On the software side, however, the Python coding has been smooth and overall the websockets library is quite convenient.  
+This simulation does have a few drawbacks however, and without real world parameters there can only be so much these sensors can emulate with proper accuracy. The random number generation for formulating the sensor data may either not be accurate enough or could possibly be even too predictable in comparison with the real world. In a more realistic simulation of the real world, there would be times where our temperature would increase or decrease due to changes in the weather but ours remains relatively constant. Our lack of hardware components also means that while our software simulation is interesting, it leaves us unable to account for any skew in our data caused by deviation in physical variables which would make testing potentially inaccurate during a field test.
+
+On the software side, however, the Python coding has been smooth and overall the websockets library is quite convenient. Python was also extremely convenient when parsing through each of the strings and with the abundance of libraries that provided us with built-in functions to manipulate arrays and dataframes. Although this can be done in C++, it would have been significantly more labour/time intensive.
+
+Having the servers poll the sensors is beneficial if you want a constant stream of real-time data. This would be important in scenarios where you have to actively monitor information being gathered from the sensors (ie: monitoring incubation temperatures). For the purposes of our assignment, this was helpful because we constantly received data so it would make sense for the server to constantly pull that data from the sensor. It would be better for the sensors to reach out to the server when they have data if the data stream was significantly more delayed. This would reduce the amount of power you would need to have the server constantly on. 
