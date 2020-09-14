@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python3.7
 """
 This example assumes the JSON data is saved one line per timestamp (message from server).
 

@@ -34,7 +34,7 @@ async def main(port: int, addr: str, max_packets: int, log_file: Path = None):
     log_file: pathlib.Path
         where to store the data received (student must add code for this)
     """
-    filename = Path("data.json")
+    filename = Path("data.json") #currently stores wherever terminal is located
     file = filename.open("a")
     if log_file:
         log_file = Path(log_file).expanduser()
