@@ -49,15 +49,67 @@ if __name__ == "__main__":
     P = p.parse_args()
 
     file = Path(P.file).expanduser()
-
+    #load our data
     data = load_data(file)
-
+    timeInterval = []
+    #Iterate through each line in data
     for k in data:
         # data[k].plot()
-        time = data[k].index
-        data[k].hist()
+        #Only do this when we're at temperature or occupancy
+        if k == "temperature" or k == "occupancy":
+            data_title = "class1: " +  k[0].upper() + k[1:] + " Data"
+            print(data_title)
+            #Find median and variance of data for temperature or occupancy
+            print("Median:", str(data[k]['class1'].median()))
+            print("Variance:", str(data[k]['class1'].var()))
+        #data[k].hist()
+        #plt.figure()
+        #plt.hist(np.diff(time.values).astype(np.int64) // 1000000000)
+        #plt.xlabel("Time (seconds)")
         plt.figure()
-        plt.hist(np.diff(time.values).astype(np.int64) // 1000000000)
-        plt.xlabel("Time (seconds)")
+        data[k]['class1'].plot.density()
+        plt.title("Probability Density Function of class 1: " + k)
 
+
+        if k == 'temperature':
+            plt.xlabel("Temperature")
+        elif k == "occupancy":
+            plt.xlabel("Occupancy")
+        else:
+            plt.xlabel("Units")
+
+    #Providing indicies to our dataframe
+    print(type(data["temperature"]))
+    time = data["temperature"].index
+    print(time[0])
+    print(type(time))
+    #print(data["temperature"])
+    #print(time)
+
+    #find difference in the time so we can plot it
+    timeDifference = time[1:] - time[:-1]
+    #print(timeDifference)
+
+    #Finding the total duration of each element in just seconds
+    for t in timeDifference:
+        timeInterval.append(t.total_seconds())
+    #Create a 1-D array so we are able to graph it
+    timeSeries = pandas.Series(timeInterval)
+    #print(timeSeries)
+
+    #Print out our stats
+    print("Time Interval Stats")
+    #Finding the mean and variance of the time interval of the sensor reading
+    print('Mean: ' + str(timeSeries.mean()))
+    print('Variance: ' + str(timeSeries.var()))
+
+    #normal distribution...? :D
+
+
+
+    plt.figure()
+    #Plot our time interval probability density function
+    timeSeries.plot.density()
+    plt.title("Time Interval Probability Density Function")
+    plt.xlabel("Time (sec)")
     plt.show()
