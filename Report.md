@@ -51,6 +51,7 @@ This tuning is performed via our script, anomaly.py, where only data points that
 * Percentage of total data that has been excluded: 0.088%
 
 	New probability functions for adjusted data:
+	
 ![image](https://i.imgur.com/f4zPPIO.png)
 
 The readjusted data is far more consistent and it appears to prove that less than 5% of the data is drastically skewing the distribution. Stray and extreme values such as these should be rightfully removed to get properly tuned data. If these extreme data points were more persistent and constituted a larger percentage of the data (upwards of 5% and over), then it could possibly indicate a failed or failing sensor. From these findings, we can conclude that at least 2 standard deviations from the mean would be a feasible bounds on temperature. In Class 1's case, this bound would be from 1.91 to 52.39 degrees.
