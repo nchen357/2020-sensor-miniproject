@@ -13,6 +13,8 @@
 
 **PURPOSE**
 	The goal of this memo is to report our findings and methodologies in programming the sensor algorithms as well as answer any conceptual questions posed throughout the project.
+	
+---
 
 **DISCUSSION**
 
@@ -36,6 +38,7 @@ Time Interval| Median | Variance
 Class1 |  1.01 | 1.09
 
 Our recorded probability functions for various parameters:
+
 ![image](https://i.imgur.com/d9BF8b3.png)
 ![image](https://i.imgur.com/tgSoupK.png)
 ![image](https://i.imgur.com/MAksoh7.png)
@@ -52,7 +55,7 @@ This tuning is performed via our script, anomaly.py, where only data points that
 * Variance: 20.84
 * Percentage of total data that has been excluded: 0.3783%
 
-	New probability function for adjusted data:
+New probability function for adjusted data:
 
 ![image](https://i.imgur.com/EybAYkh.png)
 
