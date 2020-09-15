@@ -35,7 +35,7 @@ Time Interval| Median | Variance
 ------------|--------|----------
 Class1 |  6.85 | 223920.55
 
-	Our recorded probability functions for various parameters:
+Our recorded probability functions for various parameters:
 ![image](https://i.imgur.com/W1uYFId.png)
 ![image](https://i.imgur.com/vg4a1DZ.png)
 ![image](https://i.imgur.com/h9jRPmr.png)
