@@ -26,12 +26,14 @@ After confirming the IoT simulators functions, we proceeded to save the outputte
 Temperature | Median | Variance
 ------------|--------|----------
 Class1 | 26.99 | 13213.42
-> Occupancy Data
-* Median: 19.0
-* Variance: 19.52
-> Time Interval Stats
-* Mean: 6.85
-* Variance: 223920.55
+
+Occupancy| Median | Variance
+------------|--------|----------
+Class1 | 19.0 | 19.52
+
+Time Interval| Median | Variance
+------------|--------|----------
+Class1 |  6.85 | 223920.55
 
 	Our recorded probability functions for various parameters:
 ![image](https://i.imgur.com/W1uYFId.png)
