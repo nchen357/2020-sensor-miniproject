@@ -48,7 +48,7 @@ def detection(data):
     print("Mean of readjusted Class1 data:", str(goodMedian))
     print("Variance of readjusted Class1 data:", str(goodVar))
     print("Percentage of total data points that have been excluded: ", str(100-len(goodData)/len(classData)*100))
-
+    return goodData
 
 
 if __name__ == "__main__":
@@ -59,4 +59,9 @@ if __name__ == "__main__":
     file = Path(P.file).expanduser()
     #load our data
     data = load_data(file)
-    detection(data)
+    goodData = detection(data)
+    plt.figure()
+    goodData.plot.density()
+    plt.title("Probability Density Function of class 1 temperature (excluded values)")
+    plt.xlabel("Temperature")
+    plt.show()
