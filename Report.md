@@ -50,7 +50,7 @@ This tuning is performed via our script, anomaly.py, where only data points that
 * Variance: 50.47
 * Percentage of total data that has been excluded: 0.088%
 
-	New probability functions for adjusted data:
+	New probability function for adjusted data:
 	
 ![image](https://i.imgur.com/f4zPPIO.png)
 
