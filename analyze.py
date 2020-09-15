@@ -66,7 +66,9 @@ if __name__ == "__main__":
         #plt.figure()
         #plt.hist(np.diff(time.values).astype(np.int64) // 1000000000)
         #plt.xlabel("Time (seconds)")
+        
         plt.figure()
+        print(data[k]['class1'])
         data[k]['class1'].plot.density()
         plt.title("Probability Density Function of class 1: " + k)
         plt.xlabel(k)
