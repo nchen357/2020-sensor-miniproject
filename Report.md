@@ -23,9 +23,9 @@
 **Part Two: Analysis**
 After confirming the IoT simulators functions, we proceeded to save the outputted data into a data.json file, wrote a script to analyze the data and found various measurements for a specific room of our choice - class 1. We have included the specific data set we are analyzing in this repository. Our measurements are as follows:
 
-> Temperature Data
-* Median: 26.99
-* Variance: 13213.42
+Temperature | Median | Variance
+------------|--------|----------
+Class1 | 26.99 | 13213.42
 > Occupancy Data
 * Median: 19.0
 * Variance: 19.52
@@ -51,7 +51,7 @@ This tuning is performed via our script, anomaly.py, where only data points that
 * Percentage of total data that has been excluded: 0.088%
 
 	New probability function for adjusted data:
-	
+
 ![image](https://i.imgur.com/f4zPPIO.png)
 
 The readjusted data is far more consistent and it appears to prove that less than 5% of the data is drastically skewing the distribution. Stray and extreme values such as these should be rightfully removed to get properly tuned data. If these extreme data points were more persistent and constituted a larger percentage of the data (upwards of 5% and over), then it could possibly indicate a failed or failing sensor. From these findings, we can conclude that at least 2 standard deviations from the mean would be a feasible bounds on temperature. In Class 1's case, this bound would be from 1.91 to 52.39 degrees.
@@ -64,4 +64,4 @@ This simulation does have a few drawbacks however, and without real world parame
 
 On the software side, however, the Python coding has been smooth and overall the websockets library is quite convenient. Python was also extremely convenient when parsing through each of the strings and with the abundance of libraries that provided us with built-in functions to manipulate arrays and dataframes. Although this can be done in C++, it would have been significantly more labour/time intensive.
 
-Having the servers poll the sensors is beneficial if you want a constant stream of real-time data. This would be important in scenarios where you have to actively monitor information being gathered from the sensors (ie: monitoring incubation temperatures). For the purposes of our assignment, this was helpful because we constantly received data so it would make sense for the server to constantly pull that data from the sensor. It would be better for the sensors to reach out to the server when they have data if the data stream was significantly more delayed. This would reduce the amount of power you would need to have the server constantly on. 
+Having the servers poll the sensors is beneficial if you want a constant stream of real-time data. This would be important in scenarios where you have to actively monitor information being gathered from the sensors (ie: monitoring incubation temperatures). For the purposes of our assignment, this was helpful because we constantly received data so it would make sense for the server to constantly pull that data from the sensor. It would be better for the sensors to reach out to the server when they have data if the data stream was significantly more delayed. This would reduce the amount of power you would need to have the server constantly on.
