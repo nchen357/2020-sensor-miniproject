@@ -25,21 +25,21 @@ After confirming the IoT simulators functions, we proceeded to save the outputte
 
 Temperature | Median | Variance
 ------------|--------|----------
-Class1 | 26.99 | 13213.42
+Class1 | 27.00 | 1058.98
 
 Occupancy| Median | Variance
 ------------|--------|----------
-Class1 | 19.0 | 19.52
+Class1 | 19.0 | 18.94
 
 Time Interval| Median | Variance
 ------------|--------|----------
-Class1 |  6.85 | 223920.55
+Class1 |  1.01 | 1.09
 
 Our recorded probability functions for various parameters:
-![image](https://i.imgur.com/W1uYFId.png)
-![image](https://i.imgur.com/vg4a1DZ.png)
-![image](https://i.imgur.com/h9jRPmr.png)
-![image](https://i.imgur.com/MjbM7mq.png)
+![image](https://i.imgur.com/d9BF8b3.png)
+![image](https://i.imgur.com/tgSoupK.png)
+![image](https://i.imgur.com/MAksoh7.png)
+![image](https://i.imgur.com/xT8iE5L.png)
 
 
 There is *some* normal distribution within the sensor data, much akin to larger systems, but it is dramatically skewed by extreme values as indicated by the enormous variance.
@@ -48,13 +48,13 @@ There is *some* normal distribution within the sensor data, much akin to larger 
 This tuning is performed via our script, anomaly.py, where only data points that are within 2 standard deviations of the average are included. We decided to implement this algorithm because it was sufficient enough to eliminate our outliers without being too strict and eliminating too much of our data points. From these parameters, the measurements are ran again for class 1.
 
 > Readjusted Temperature Data
-* Median: 24.64
-* Variance: 50.47
-* Percentage of total data that has been excluded: 0.088%
+* Median: 26.99
+* Variance: 20.84
+* Percentage of total data that has been excluded: 0.3783%
 
 	New probability function for adjusted data:
 
-![image](https://i.imgur.com/f4zPPIO.png)
+![image](https://i.imgur.com/EybAYkh.png)
 
 The readjusted data is far more consistent and it appears to prove that less than 5% of the data is drastically skewing the distribution. Stray and extreme values such as these should be rightfully removed to get properly tuned data. If these extreme data points were more persistent and constituted a larger percentage of the data (upwards of 5% and over), then it could possibly indicate a failed or failing sensor. From these findings, we can conclude that at least 2 standard deviations from the mean would be a feasible bounds on temperature. In Class 1's case, this bound would be from 1.91 to 52.39 degrees.
 
