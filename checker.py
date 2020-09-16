@@ -57,6 +57,9 @@ if __name__ == "__main__":
     meanData = normalData.mean()
     stdData = normalData.std()
 
+    #variance of the temperature
+    print("Temperature of normal data: ", str(normalData.var()))
+
     #upper boundary and lower boundary
     upperBound = meanData + (stdData*2)
     lowerBound = meanData - (stdData*2)
@@ -71,6 +74,7 @@ if __name__ == "__main__":
     lenFilter = len(filteredData)
     print("Length of normal data: ", str(lenNorm))
     print("Length of filtered data: ", str(lenFilter))
-    print("Percentage of removed data: ", str(lenFilter/lenNorm))
+    print("Percentage of removed data: ", str(1 - lenFilter/lenNorm))
     print("Filtered Max: ", str(max(filteredData)))
     print("Filtered Min: ", str(min(filteredData)))
+    print("Temperature of filtered data: ", str(filteredData.var()))
