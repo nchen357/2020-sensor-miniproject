@@ -39,10 +39,10 @@ Class1 |  1.01 | 1.09
 
 Our recorded probability functions for various parameters:
 
-![image](https://i.imgur.com/d9BF8b3.png)
-![image](https://i.imgur.com/tgSoupK.png)
-![image](https://i.imgur.com/MAksoh7.png)
-![image](https://i.imgur.com/xT8iE5L.png)
+![image](https://i.imgur.com/xMLpmMV.png)
+![image](https://i.imgur.com/X4nrfyD.png)
+![image](https://i.imgur.com/wq0IkRH.png)
+![image](https://i.imgur.com/vMq8kTP.png)
 
 #### 4. Does this mimic a well known distribution for connection intervals in large systems?
 This distribution seems to mimic the Erlang distribution.
@@ -59,7 +59,7 @@ Class1 |  26.99 | 20.84 | 0.3783%
 
 New probability function for adjusted data:
 
-![image](https://i.imgur.com/EybAYkh.png)
+![image](https://i.imgur.com/MxQkahL.png)
 
 #### 2. Does a persistent change in temperature always indicate a failed sensor?
 The readjusted data is far more consistent and it appears to prove that less than 5% of the data is drastically skewing the distribution. Stray and extreme values such as these should be rightfully removed to get properly tuned data. If these extreme data points were more persistent and constituted a larger percentage of the data (upwards of 5% and over), then it could possibly indicate a failed or failing sensor.
