@@ -45,16 +45,17 @@ Our recorded probability functions for various parameters:
 ![image](https://i.imgur.com/xT8iE5L.png)
 
 #### 4. Does this mimic a well known distribution for connection intervals in large systems?
-This distribution seems to mimic the Erlang distribution. 
+This distribution seems to mimic the Erlang distribution.
 
 **Part Three: Design**
 #### 1. Implement an algorithm that detects anomalies in temperature sensor data.
 This tuning is performed via our script, anomaly.py, where only data points that are within 2 standard deviations of the average are included. We decided to implement this algorithm because it was sufficient enough to eliminate our outliers without being too strict and eliminating too much of our data points. From these parameters, the measurements are ran again for class 1.
 
-> Readjusted Temperature Data
-* Median: 26.99
-* Variance: 20.84
-* Percentage of total data that has been excluded: 0.3783%
+
+Readjusted Temperature Data| Median | Variance | Percentage of total excluded data
+------------|--------|----------|---------------------------------------
+Class1 |  26.99 | 20.84 | 0.3783%
+
 
 New probability function for adjusted data:
 
