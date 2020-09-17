@@ -55,7 +55,6 @@ if __name__ == "__main__":
     timeInterval = []
     #Iterate through each line in data
     for k in data:
-        # data[k].plot()
         #Only do this when we're at temperature or occupancy
         if k == "temperature" or k == "occupancy":
             data_title = "class1: " +  k[0].upper() + k[1:] + " Data"
@@ -64,16 +63,8 @@ if __name__ == "__main__":
             #Find median and variance of data for temperature or occupancy
             print("Median:", str(data[k]['class1'].median()))
             print("Variance:", str(data[k]['class1'].var()))
-        #data[k].hist()
-        #plt.figure()
-        #plt.hist(np.diff(time.values).astype(np.int64) // 1000000000)
-        #plt.xlabel("Time (seconds)")
 
         plt.figure()
-        #print(data[k]['class1'])
-        #data[k]['class1'].plot.density()
-        #sbn.distplot(data[k]['class1'], hist = True)
-        #hist, binEdges = np.histogram(data[k]['class1'])
         if k == "temperature":
             data[k]['class1'].hist(bins = 1000)
             plt.xlim(0, 40)
@@ -102,10 +93,7 @@ if __name__ == "__main__":
 
     plt.figure()
     #Plot our time interval probability density function
-    #timeSeries.plot.density()
-    timeSeries.hist()
-
-    #sbn.distplot(timeSeries, hist = True)
+    plt.hist(timeSeries, bins = [-5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5, 6])
     print(timeSeries)
     plt.title("Time Interval Probability Density Function")
     plt.xlabel("Time (sec)")
