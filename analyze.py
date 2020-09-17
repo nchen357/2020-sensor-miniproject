@@ -16,6 +16,7 @@ from datetime import datetime
 import typing as T
 import matplotlib.pyplot as plt
 import numpy as np
+import seaborn as sbn
 
 
 def load_data(file: Path) -> T.Dict[str, pandas.DataFrame]:
@@ -59,6 +60,7 @@ if __name__ == "__main__":
         if k == "temperature" or k == "occupancy":
             data_title = "class1: " +  k[0].upper() + k[1:] + " Data"
             print(data_title)
+            data[k]['class1'] = data[k]['class1'].dropna()
             #Find median and variance of data for temperature or occupancy
             print("Median:", str(data[k]['class1'].median()))
             print("Variance:", str(data[k]['class1'].var()))
@@ -69,7 +71,14 @@ if __name__ == "__main__":
 
         plt.figure()
         #print(data[k]['class1'])
-        data[k]['class1'].plot.density()
+        #data[k]['class1'].plot.density()
+        #sbn.distplot(data[k]['class1'], hist = True)
+        #hist, binEdges = np.histogram(data[k]['class1'])
+        if k == "temperature":
+            data[k]['class1'].hist(bins = 1000)
+            plt.xlim(0, 40)
+        else:
+            data[k]['class1'].hist()
         plt.title("Probability Density Function of class 1: " + k)
         plt.xlabel(k)
 
@@ -93,7 +102,11 @@ if __name__ == "__main__":
 
     plt.figure()
     #Plot our time interval probability density function
-    timeSeries.plot.density()
+    #timeSeries.plot.density()
+    timeSeries.hist()
+
+    #sbn.distplot(timeSeries, hist = True)
+    print(timeSeries)
     plt.title("Time Interval Probability Density Function")
     plt.xlabel("Time (sec)")
     plt.show()
